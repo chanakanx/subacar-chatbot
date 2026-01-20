@@ -290,7 +290,7 @@ def load_rag_chain():
         collection_name="subacar_all"
     )
 
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
+    retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 15})  # เพิ่มจาก 8 เป็น 15, ใช้ similarity เพื่อ match ง่ายขึ้น
 
     llm = ChatOpenAI(
         model="gpt-4o-mini",
@@ -797,6 +797,11 @@ if user_input := st.chat_input("อยากเช่ารถแบบไหน
                             logger.info(
                                 f"Success | {time.time() - start_time:.2f}s | Tokens: {cb.total_tokens} | Cost: ${cb.total_cost:.6f} | Mode: BUSINESS"
                             )
+
+                            logger.info(
+                                f"Retrieved context for '{user_input}':\n{context_text[:500]}...")  # พิมพ์ context ย่อใน log
+                                if not context_text:
+                            logger.warning(f"No context retrieved for query: {user_input}")
 
 
                 end_time = time.time()
