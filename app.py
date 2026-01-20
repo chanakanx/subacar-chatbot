@@ -289,7 +289,7 @@ with st.sidebar:
 @st.cache_resource
 def load_rag_chain():
     embedding = HuggingFaceEmbeddings(
-    model_name="intfloat/multilingual-e5-large-instruct",
+    model_name="intfloat/multilingual-e5-small",
     model_kwargs={"device": "cpu"}
 )
 
