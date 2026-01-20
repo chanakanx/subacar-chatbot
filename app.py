@@ -1,6 +1,6 @@
 import streamlit as st
 from langchain_chroma import Chroma
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain_core.runnables import RunnableLambda
 from langchain_core.prompts import PromptTemplate
@@ -9,13 +9,13 @@ from langchain_community.callbacks import get_openai_callback
 import time
 import logging
 import json
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import re  # เพิ่มเข้ามาเพื่อช่วยตรวจ pattern
 
 # =====================
 # Setup
 # =====================
-load_dotenv()
+# load_dotenv()
 
 logging.basicConfig(
     level=logging.INFO,

@@ -5,3 +5,12 @@ echo "remove_hf_token.txt" >> .gitignore
 git add .gitignore
 git commit -m "chore: ignore local hf token helper file"
 git push origin main
+# .gitignore
+.env
+*.env
+secrets/*
+credentials/*
+chroma_db/
+__pycache__/
+*.pyc
+.DS_Store

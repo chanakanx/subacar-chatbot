@@ -10,3 +10,7 @@ python-dotenv
 chromadb
 openai
 tiktoken                # ถ้าใช้ gpt-4o-mini
+langchain-huggingface>=0.1.0
+# ลบหรือ comment บรรทัด langchain-community ถ้าไม่จำเป็นส่วนอื่น
+# หรือระบุเวอร์ชันเก่าแบบชั่วคราว: langchain-community==0.2.16 (แต่ไม่แนะนำ)
+sentence-transformers>=3.0.0  # หรือเวอร์ชันล่าสุด
