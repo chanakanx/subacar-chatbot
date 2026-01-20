@@ -1,0 +1,7 @@
+.env
+__pycache__/
+chroma_db/.lock
+echo "remove_hf_token.txt" >> .gitignore
+git add .gitignore
+git commit -m "chore: ignore local hf token helper file"
+git push origin main

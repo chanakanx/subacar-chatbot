@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "รัน Sub A Car – HTTPS localhost (กด Ctrl+Shift+P → Run Task)",
+      "type": "shell",
+      "command": "npx",
+      "args": [
+        "serve",
+        "-s",
+        ".",
+        "--ssl-cert",
+        "localhost+2.pem",
+        "--ssl-key",
+        "localhost+2-key.pem",
+        "-l",
+        "443"
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": [],
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "detail": "รันเว็บด้วย HTTPS อัตโนมัติ + แชทถาวรทำงาน 100%"
+    },
+    {
+      "label": "เตรียม SSL + ฆ่าพอร์ต 443 (รันครั้งแรก)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "npx kill-port 443 || true; if [ ! -f localhost+2.pem ]; then mkcert -install && mkcert localhost 127.0.0.1 ::1; fi; echo 'SSL พร้อมแล้ว กดรัน task ด้านบนได้เลย'"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+streamlit>=1.38.0
+langchain>=0.3.0
+langchain-chroma
+langchain-community
+langchain-openai
+langchain-core
+huggingface-hub
+sentence-transformers  # หรือ torch ถ้า bge-m3 ต้องการ
+python-dotenv
+chromadb
+openai
+tiktoken                # ถ้าใช้ gpt-4o-mini
