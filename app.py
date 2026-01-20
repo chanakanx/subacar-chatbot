@@ -281,7 +281,7 @@ with st.sidebar:
 @st.cache_resource
 def load_rag_chain():
     embedding = HuggingFaceEmbeddings(
-        model_name="BAAI/bge-m3"
+        model_name="intfloat/multilingual-e5-large-instruct"
     )
 
     vectorstore = Chroma(
@@ -805,7 +805,7 @@ if user_input := st.chat_input("อยากเช่ารถแบบไหน
                                 f"Success | {time.time() - start_time:.2f}s | "
                                 f"Tokens: {cb.total_tokens} | Cost: ${cb.total_cost:.6f} | Mode: BUSINESS"
                             )
-                            
+
                 end_time = time.time()
                 elapsed_time = end_time - start_time
 

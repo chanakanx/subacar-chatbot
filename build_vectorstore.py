@@ -61,7 +61,7 @@ def create_chroma_from_jsonl(
     collection_name: str = "subacar_all_v2026",
     chunk_size: int = 800,
     chunk_overlap: int = 120,
-    embedding_model: str = "BAAI/bge-m3",
+    embedding_model: str = "intfloat/multilingual-e5-large-instruct",
 ):
     logger.info(f"เริ่มสร้าง vector store | model: {embedding_model}")
 
