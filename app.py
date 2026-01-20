@@ -289,8 +289,9 @@ with st.sidebar:
 @st.cache_resource
 def load_rag_chain():
     embedding = HuggingFaceEmbeddings(
-        model_name="multilingual-e5-large-instruct"
-    )
+    model_name="intfloat/multilingual-e5-large-instruct",
+    model_kwargs={"device": "cpu"}
+)
 
     vectorstore = Chroma(
         persist_directory="chroma_db",
