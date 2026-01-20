@@ -800,7 +800,7 @@ if user_input := st.chat_input("อยากเช่ารถแบบไหน
 
                             logger.info(
                                 f"Retrieved context for '{user_input}':\n{context_text[:500]}...")  # พิมพ์ context ย่อใน log
-                                if not context_text:
+                            if not context_text:
                             logger.warning(f"No context retrieved for query: {user_input}")
 
 
