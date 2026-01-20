@@ -289,7 +289,7 @@ with st.sidebar:
 @st.cache_resource
 def load_rag_chain():
     embedding = HuggingFaceEmbeddings(
-        model_name="wangchanberta-finetuned-wiki-th"
+        model_name="multilingual-e5-large-instruct"
     )
 
     vectorstore = Chroma(
