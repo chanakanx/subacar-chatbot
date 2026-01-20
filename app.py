@@ -791,19 +791,21 @@ if user_input := st.chat_input("อยากเช่ารถแบบไหน
                             answer_source = detect_answer_source(response, context_text)
                             logger.info(f"Answer source check: {answer_source}")
 
+                            # เพิ่มการ log context ที่ดึงมาได้ (เพื่อ debug ว่าดึงข้อมูลจริงหรือเปล่า)
+                            logger.info(f"Retrieved context for '{user_input}':\n{context_text[:500]}...")
+                            if not context_text:
+                                logger.warning(f"No context retrieved for query: {user_input}")
+
+                            # อัปเดตสถิติ token และ cost
                             st.session_state.total_tokens += cb.total_tokens
                             st.session_state.total_cost += cb.total_cost
 
+                            # log สรุปผลการทำงาน
                             logger.info(
-                                f"Success | {time.time() - start_time:.2f}s | Tokens: {cb.total_tokens} | Cost: ${cb.total_cost:.6f} | Mode: BUSINESS"
+                                f"Success | {time.time() - start_time:.2f}s | "
+                                f"Tokens: {cb.total_tokens} | Cost: ${cb.total_cost:.6f} | Mode: BUSINESS"
                             )
-
-                            logger.info(
-                                f"Retrieved context for '{user_input}':\n{context_text[:500]}...")  # พิมพ์ context ย่อใน log
-                            if not context_text:
-                            logger.warning(f"No context retrieved for query: {user_input}")
-
-
+                            
                 end_time = time.time()
                 elapsed_time = end_time - start_time
 
