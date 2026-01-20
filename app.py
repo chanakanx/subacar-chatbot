@@ -275,6 +275,14 @@ with st.sidebar:
         st.session_state.chat_history = []
         st.success("ล้างประวัติเรียบร้อยแล้วค่ะ")
 
+# ── ปุ่มเคลียร์แคชทั้งหมด ──
+    st.markdown("---")  # เส้นแบ่งให้ดูสวย
+    st.subheader("สำหรับ Developer / ทดสอบ")
+    if st.button("เคลียร์แคชทั้งหมด (Clear Cache)"):
+        st.cache_data.clear()
+        st.cache_resource.clear()
+        st.success("เคลียร์แคชเรียบร้อยแล้ว! กดรีเฟรชหน้า (F5) เพื่อโหลดใหม่ทั้งหมด")
+
 # =====================
 # Load RAG Chain (เพิ่ม escalation_chain)
 # =====================
