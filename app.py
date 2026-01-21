@@ -286,11 +286,13 @@ with st.sidebar:
 # =====================
 # Load RAG Chain (เพิ่ม escalation_chain)
 # =====================
-@st.cache_resource
+@st.cache_resource(show_spinner=False)
 def load_rag_chain():
+    st.info("🔄 กำลังโหลด Embedding model (ครั้งแรกจะใช้เวลานานนิดนึง)")
     embedding = HuggingFaceEmbeddings(
     model_name="BAAI/bge-m3",
-    model_kwargs={"device": "cpu"}
+    model_kwargs={"device": "cpu"},
+    encode_kwargs={"batch_size": 64}
 )
 
     vectorstore = Chroma(
